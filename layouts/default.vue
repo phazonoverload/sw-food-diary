@@ -47,4 +47,35 @@ html {
 a {
   color: var(--theme);
 }
+
+#title {
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  margin-bottom: 2em;
+}
+
+.input-group label {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: block;
+}
+
+.input-group input {
+  width: 100%;
+  display: block;
+  border: 2px solid lightgrey;
+}
+
+.input-group input:focus {
+  border-color: var(--theme);
+}
+
+input[type="submit"] {
+  background: var(--theme);
+  color: white;
+  padding: 0.5em 1.5em;
+  -webkit-appearance: none;
+}
 </style>

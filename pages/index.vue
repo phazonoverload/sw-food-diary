@@ -1,7 +1,7 @@
 <template>
   <div id="page">
     <div class="content">
-      <h1>Track your food.</h1>
+      <h1 id="title">Track your food.</h1>
       <p>Record food as you eat it.</p>
       <p>Keep on top of your points.</p>
       <p>Share easily with your consultant.</p>

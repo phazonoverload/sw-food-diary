@@ -1,18 +1,30 @@
 <template>
   <div id="nav">
-    <div class="left">
+    <div class="left" v-if="JSON.parse(this.showDatePicker)">
       <i class="fas fa-chevron-left"></i>
       <span>Past</span>
     </div>
+    <n-link to="/record" class="record">
+      <i class="fas fa-book"></i>
+    </n-link>
+    <n-link to="/week" class="week">
+      <i class="far fa-chart-bar"></i>
+    </n-link>
     <n-link to="/settings" class="settings">
       <i class="fas fa-cog"></i>
     </n-link>
-    <div class="right">
+    <div class="right" v-if="JSON.parse(this.showDatePicker)">
       <span>Next</span>
       <i class="fas fa-chevron-right"></i>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["showDatePicker"]
+};
+</script>
 
 <style scoped>
 #nav {
@@ -23,10 +35,9 @@
   flex-direction: row;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1.25em;
 }
 #nav > * {
-  flex: 1;
+  flex: auto;
 }
 .left {
   text-align: left;
@@ -34,7 +45,9 @@
 .left i {
   margin-right: 0.25em;
 }
-.settings {
+.settings,
+.week,
+.record {
   text-align: center;
   color: inherit;
 }
