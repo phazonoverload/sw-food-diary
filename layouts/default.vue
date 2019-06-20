@@ -25,9 +25,10 @@ html {
 }
 
 .wrapper {
-  max-width: 400;
+  max-width: 400px;
   margin: 0 auto;
   border: 1px solid lightgrey;
+  padding: 1em;
 }
 
 .button--green {
