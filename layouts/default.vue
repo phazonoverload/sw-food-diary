@@ -34,28 +34,14 @@ html {
   padding: 1em;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid var(--theme);
+.cta {
+  font-weight: bold;
+  text-transform: uppercase;
   color: var(--theme);
+  font-size: 1.5em;
+  border-bottom: 2px solid var(--theme);
   text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: var(--theme);
-}
-
-.button--grey {
   display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #002955;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
 }
 
 a {

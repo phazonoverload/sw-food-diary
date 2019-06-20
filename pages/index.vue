@@ -5,7 +5,7 @@
       <p>Record food as you eat it.</p>
       <p>Keep on top of your points.</p>
       <p>Share easily with your consultant.</p>
-      <n-link to="/login" class="button--green">Sign up now</n-link>
+      <n-link to="/login" class="cta">Login now</n-link>
     </div>
     <div class="bottom">
       <small>
@@ -26,6 +26,9 @@
 }
 p {
   margin: 1em 0;
+}
+.cta {
+  margin-top: 1em;
 }
 .bottom {
   margin-top: 2em;
