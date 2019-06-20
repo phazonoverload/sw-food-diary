@@ -5,6 +5,10 @@
 </template>
 
 <style>
+:root {
+  --theme: #da0000;
+}
+
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -27,36 +31,34 @@ html {
 .wrapper {
   max-width: 400px;
   margin: 0 auto;
-  border: 1px solid lightgrey;
   padding: 1em;
 }
 
 .button--green {
   display: inline-block;
   border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+  border: 1px solid var(--theme);
+  color: var(--theme);
   text-decoration: none;
   padding: 10px 30px;
 }
 
 .button--green:hover {
   color: #fff;
-  background-color: #3b8070;
+  background-color: var(--theme);
 }
 
 .button--grey {
   display: inline-block;
   border-radius: 4px;
-  border: 1px solid #35495e;
+  border: 1px solid #002955;
   color: #35495e;
   text-decoration: none;
   padding: 10px 30px;
   margin-left: 15px;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+a {
+  color: var(--theme);
 }
 </style>
