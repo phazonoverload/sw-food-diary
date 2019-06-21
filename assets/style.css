@@ -1,0 +1,74 @@
+:root {
+  --theme: #008cff;
+  --theme__dark: #0062b3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter UI var alt', sans-serif;
+}
+
+body {
+  padding: 1em;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+h1#title {
+  margin-bottom: 1em;
+}
+
+input,
+select {
+  -webkit-appearance: none;
+  padding: 0.5em;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  width: 100%;
+}
+
+input:focus,
+input[type='submit'],
+.btn {
+  border-color: var(--theme);
+  box-shadow: 0 2px 0 var(--theme__dark);
+}
+
+input[type='submit'],
+.btn {
+  background: var(--theme);
+  color: white !important;
+  margin-top: 1em;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.6em 1em 0.5em 1em;
+  border-radius: 4px;
+}
+
+#auth small,
+.logout {
+  color: var(--theme);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.logout {
+  margin-top: 2em;
+}
+
+.add-entry h4 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+a,
+a:visited {
+  color: var(--theme);
+}

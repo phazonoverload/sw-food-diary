@@ -1,11 +1,11 @@
 <template>
   <div id="page">
     <div class="content">
-      <h1 id="title">Track your food.</h1>
-      <p>Record food as you eat it.</p>
+      <h1 id="title">Food Tracker.</h1>
+      <!-- <p>Record food as you eat it.</p>
       <p>Keep on top of your points.</p>
-      <p>Share easily with your consultant.</p>
-      <n-link to="/login" class="cta">Login now</n-link>
+      <p>Share easily with your consultant.</p>-->
+      <n-link to="/login" class="btn">Login now</n-link>
     </div>
     <div class="bottom">
       <small>
@@ -26,9 +26,6 @@
 }
 p {
   margin: 1em 0;
-}
-.cta {
-  margin-top: 1em;
 }
 .bottom {
   margin-top: 2em;

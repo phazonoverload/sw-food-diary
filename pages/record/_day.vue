@@ -1,5 +1,0 @@
-<template>
-  <div>
-    <h1>Date.</h1>
-  </div>
-</template>
