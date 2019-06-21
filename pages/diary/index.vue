@@ -4,20 +4,49 @@
     <h2>Fri 21st June 2019</h2>
     <AddItem :date="date"/>
     <hr>
-    <!-- LIST ITEMS -->
+    <ListFood :food="food"/>
   </div>
 </template>
 
 <script>
 import AddItem from "~/components/AddItem";
+import ListFood from "~/components/ListFood";
 export default {
   data() {
     return {
-      date: "2019-06-21"
+      date: "2019-06-21",
+      food: [
+        {
+          name: "Muller Light",
+          points: 1,
+          type: "points"
+        },
+        {
+          name: "Broccoli",
+          points: 0,
+          type: "speed"
+        },
+        {
+          name: "5% Mince",
+          points: 0,
+          type: "free"
+        },
+        {
+          name: "40g Lighter Cheddar",
+          points: 0,
+          type: "a"
+        },
+        {
+          name: "Kitkat",
+          points: 9,
+          type: "points"
+        }
+      ]
     };
   },
   components: {
-    AddItem
+    AddItem,
+    ListFood
   }
 };
 </script>

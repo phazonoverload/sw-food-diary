@@ -19,7 +19,15 @@ export default {
     };
   },
   methods: {
-    register() {}
+    register() {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.auth.email, this.auth.password)
+        .then(user => {
+          this.user = user;
+          this.authReset();
+        });
+    }
   }
 };
 </script>

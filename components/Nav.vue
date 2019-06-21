@@ -1,8 +1,8 @@
 <template>
   <nav>
     <div class="date">
-      <span class="btn">Previous day</span>
-      <span class="btn">Next day</span>
+      <span class="btn grey">Previous day</span>
+      <span class="btn grey">Next day</span>
     </div>
     <div class="pages">
       <n-link to="/diary">Diary</n-link>

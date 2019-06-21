@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 #page {
-  padding-bottom: 8em; /* reduce if logged out */
+  padding-bottom: 8em; /* TODO: reduce if logged out */
 }
 #nav {
   position: fixed;

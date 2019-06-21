@@ -55,6 +55,11 @@ input[type='submit'],
   font-size: 1em;
 }
 
+.btn.grey {
+  background: slategrey;
+  box-shadow: 0 2px 0 darkslategrey;
+}
+
 a,
 a:visited {
   color: var(--theme);
