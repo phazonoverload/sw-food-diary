@@ -15,21 +15,17 @@ import ListFood from "~/components/ListFood";
 
 export default {
   middleware: 'must-be-logged-in',
+  beforeCreate() {
+    this.$store.dispatch('setDate', '2019-06-22');
+  },
   data() {
     return {
-      date: "2019-06-22",
       days: []
     };
   },
   firestore() {
     return {
       days: db.collection('days').where('date', '==', this.date).where('user', '==', this.currentUser.user.email)
-    }
-  },
-  methods: {
-    
-    removeItem() {
-
     }
   },
   computed: {
@@ -42,6 +38,9 @@ export default {
       } else {
         return [];
       }
+    },
+    date() {
+      return this.$store.getters.date
     }
   },
   components: {

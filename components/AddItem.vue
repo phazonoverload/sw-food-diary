@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import { db } from "~/plugins/firebase.js";
-
 export default {
   data() {
     return {
@@ -32,18 +30,13 @@ export default {
     addItem() {
       const { date, food, name, points, type } = this;
       const user = this.$store.getters.currentUser.user.email;
-      db.collection("days").doc(`${date}-${user}`).set({
-        user, date,
-        food: [...this.food, { name, points, type }]
+      this.$store.dispatch('addItemToDiary', {
+        date, food, name, points, type, user
       }).then(() => {
-          console.log("Document successfully written!");
-          this.name = '';
-          this.points = 0;
-          this.type = '';
-      }).catch(error => {
-          console.error("Error writing document: ", error);
-      });
-
+        this.name = '';
+        this.points = 0;
+        this.type = '';
+      })
     },
   },
   props: ["date", "food"]

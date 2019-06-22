@@ -1,13 +1,13 @@
 <template>
   <div id="items">
     <div v-if="food.length > 0">
-      <div class="item" v-for="item in food" :key="item.name">
+      <div class="item" v-for="item in food" :key="item.id">
         <div class="name">{{item.name}}</div>
         <div class="points">
           <span v-if="item.type == 'speed'">(S)</span>
           <span>{{ item.points }}</span>
         </div>
-        <div class="delete">
+        <div class="delete" @click='deleteItem(item.id)'>
           <i class="fas fa-trash"></i>
         </div>
       </div>
@@ -18,7 +18,12 @@
 
 <script>
 export default {
-  props: ["food"]
+  methods: {
+    deleteItem(id) {
+      this.$store.dispatch('removeItemFromDiary', { foods: this.foods, id })
+    }
+  },
+  props: ["food", "foods"]
 };
 </script>
 
