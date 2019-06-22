@@ -14,6 +14,7 @@
 import { auth } from "~/plugins/firebase.js";
 
 export default {
+  middleware: 'must-be-logged-out',
   data() {
     return {
       email: "",

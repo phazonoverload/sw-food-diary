@@ -20,8 +20,9 @@ export default {
   methods: {
     logout() {
       auth.signOut().then(() => {
-        this.$store.dispatch('clearCurrentUser');
-        this.$router.push("/");
+        this.$store.dispatch('clearCurrentUser').then(() => {
+          this.$router.push("/");
+        });
       });
     }
   }  

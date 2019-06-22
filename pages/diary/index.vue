@@ -12,6 +12,7 @@
 import AddItem from "~/components/AddItem";
 import ListFood from "~/components/ListFood";
 export default {
+  middleware: 'must-be-logged-in',
   data() {
     return {
       date: "2019-06-21",

@@ -30,6 +30,6 @@ export const actions = {
 
 export const getters = {
   currentUser(state) {
-    return state
+    return state.currentUser
   }
 }

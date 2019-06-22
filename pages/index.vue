@@ -17,6 +17,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  middleware: 'must-be-logged-out',
+}
+</script>
+
 <style scoped>
 #page {
   min-height: calc(100vh - 2em);
