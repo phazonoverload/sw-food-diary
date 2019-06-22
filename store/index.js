@@ -1,7 +1,7 @@
 export const strict = false
 
 export const state = () => ({
-  currentUser: null
+  currentUser: JSON.parse(localStorage.getItem('currentUser')) || null
 });
 
 export const mutations = {
@@ -19,7 +19,7 @@ export const actions = {
   setCurrentUser(vuexContext, user) {
     console.log('[action] setCurrentUser');
     vuexContext.commit('setCurrentUser', user);
-    localStorage.setItem('currentUser', user);
+    localStorage.setItem('currentUser', JSON.stringify(user));
   },
   clearCurrentUser(vuexContext) {
     console.log('[action] clearCurrentUser');
@@ -29,5 +29,7 @@ export const actions = {
 }
 
 export const getters = {
-
+  currentUser(state) {
+    return state
+  }
 }

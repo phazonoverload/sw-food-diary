@@ -1,15 +1,20 @@
 <template>
-  <div id="page">
+  <div id="page" :class="{authed: currentUser}">
     <div class="wrapper">
       <nuxt/>
     </div>
-    <Nav id="nav"/>
+    <Nav id="nav" v-if='currentUser' />
   </div>
 </template>
 
 <script>
 import Nav from "~/components/Nav";
 export default {
+  computed: {
+    currentUser() {
+      return this.$store.getters.currentUser
+    }
+  },
   components: {
     Nav
   }
@@ -18,7 +23,12 @@ export default {
 
 <style scoped>
 #page {
-  padding-bottom: 8em; /* TODO: reduce if logged out */
+  padding-bottom: 0;
+  background: red;
+}
+#page.authed {
+  padding-bottom: 7.5em;
+  background: green;
 }
 #nav {
   position: fixed;
