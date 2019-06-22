@@ -23,6 +23,10 @@ input {
 
 h1#title {
   margin-bottom: 1em;
+  font-size: 1.5em;
+  text-decoration: underline;
+  text-decoration-color: var(--theme);
+  text-decoration-style: double;
 }
 
 input,

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Food diary.</h1>
+    <h1 id='title'>Food diary.</h1>
     <h2>{{ this.date | moment('ddd Do MMM') }}</h2>
     <AddItem :date="date" :food='food' />
     <hr>
