@@ -1,6 +1,5 @@
 <template>
   <div id="items">
-    <!-- TODO: Change key to .key later -->
     <div v-if="food.length > 0">
       <div class="item" v-for="item in food" :key="item.name">
         <div class="name">{{item.name}}</div>
@@ -37,13 +36,10 @@ export default {
 .name {
   margin-right: auto;
 }
-.points {
-}
-.points span {
-}
 i {
   margin-left: 0.5em;
   color: slategrey;
+  cursor: pointer;
 }
 .not-used {
   margin-bottom: 1em;

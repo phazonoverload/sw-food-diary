@@ -4,7 +4,7 @@
     <ListFoodSection :food="a"/>
     <h2>B Choices</h2>
     <ListFoodSection :food="b"/>
-    <h2>Points</h2>
+    <h2>Points ({{ totalPoints }})</h2>
     <ListFoodSection :food="points"/>
     <h2>Free</h2>
     <ListFoodSection :food="free"/>
@@ -31,7 +31,7 @@ export default {
       );
     },
     totalPoints() {
-      //
+      return this.points.reduce((acc, val) => { return acc + val.points }, 0);
     }
   },
   components: {

@@ -2,11 +2,11 @@
   <form @submit.prevent="addItem">
     <h3>Add item to diary</h3>
     <label for="name">Name of food item</label>
-    <input type="text" id="name" v-model="item.name">
+    <input type="text" id="name" v-model="name" required>
     <label for="points">Points</label>
-    <input type="number" id="points" v-model="item.points">
+    <input type="number" id="points" step="any" v-model="points" required>
     <label for="type">Type</label>
-    <select v-model="item.type" id="type">
+    <select v-model="type" id="type" required>
       <option value="a">A Choice</option>
       <option value="b">B Choice</option>
       <option value="free">Free</option>
@@ -18,20 +18,35 @@
 </template>
 
 <script>
+import { db } from "~/plugins/firebase.js";
+
 export default {
   data() {
     return {
-      item: {
-        name: "",
-        points: 0,
-        type: ""
-      }
+      name: "",
+      points: 0,
+      type: ""
     };
   },
   methods: {
-    addItem() {}
+    addItem() {
+      const { date, food, name, points, type } = this;
+      const user = this.$store.getters.currentUser.user.email;
+      db.collection("days").doc(`${date}-${user}`).set({
+        user, date,
+        food: [...this.food, { name, points, type }]
+      }).then(() => {
+          console.log("Document successfully written!");
+          this.name = '';
+          this.points = 0;
+          this.type = '';
+      }).catch(error => {
+          console.error("Error writing document: ", error);
+      });
+
+    },
   },
-  props: ["date"]
+  props: ["date", "food"]
 };
 </script>
 

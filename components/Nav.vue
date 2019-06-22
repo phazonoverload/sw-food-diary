@@ -46,7 +46,7 @@ export default {
 <style scoped>
 nav {
   background: white;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.25);
 }
 .date,
 .pages {
@@ -59,13 +59,19 @@ nav {
 }
 .date .btn {
   margin-top: 0;
+  cursor: pointer;
+  font-size: 0.8em;
 }
 .pages {
   padding: 1em 1em 1em;
 }
+.pages a,
 .pages span {
   color: var(--theme);
-  text-decoration: underline;
   cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8em;
 }
 </style>

@@ -2,7 +2,7 @@
   <div>
     <h1>Food diary.</h1>
     <h2>{{ this.date | moment('ddd Do MMM') }}</h2>
-    <AddItem :date="date"/>
+    <AddItem :date="date" :food='food' />
     <hr>
     <ListFood :food="food"/>
   </div>
@@ -24,6 +24,12 @@ export default {
   firestore() {
     return {
       days: db.collection('days').where('date', '==', this.date).where('user', '==', this.currentUser.user.email)
+    }
+  },
+  methods: {
+    
+    removeItem() {
+
     }
   },
   computed: {
