@@ -23,7 +23,6 @@ export default {
   methods: {
     register() {
       auth.createUserWithEmailAndPassword(this.email, this.password).then(user => {
-        console.log(user);
         this.$store.dispatch("setCurrentUser", user);
         this.$router.push("/diary");
       });

@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { auth } from "~/plugins/firebase.js";
+
 export default {
   data() {
     return {
@@ -19,7 +21,12 @@ export default {
     };
   },
   methods: {
-    login() {}
+    login() {
+      auth.signInWithEmailAndPassword(this.email, this.password).then(user => {
+        this.$store.dispatch("setCurrentUser", user);
+        this.$router.push("/diary");
+      });
+    }
   }
 };
 </script>
