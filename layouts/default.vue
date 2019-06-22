@@ -24,11 +24,9 @@ export default {
 <style scoped>
 #page {
   padding-bottom: 0;
-  background: red;
 }
 #page.authed {
-  padding-bottom: 7.5em;
-  background: green;
+  padding-bottom: 6em;
 }
 #nav {
   position: fixed;

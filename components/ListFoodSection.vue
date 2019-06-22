@@ -5,8 +5,8 @@
       <div class="item" v-for="item in food" :key="item.name">
         <div class="name">{{item.name}}</div>
         <div class="points">
-          <span>{{ item.points }}</span>
           <span v-if="item.type == 'speed'">(S)</span>
+          <span>{{ item.points }}</span>
         </div>
         <div class="delete">
           <i class="fas fa-trash"></i>

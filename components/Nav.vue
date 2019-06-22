@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <div class="date">
+    <div class="date" v-if='showDateSwitcher'>
       <span class="btn grey">Previous day</span>
       <span class="btn grey">Next day</span>
     </div>
@@ -17,6 +17,11 @@
 import { auth } from "~/plugins/firebase.js";
 
 export default {
+  data() {
+    return {
+      showDateSwitcher: true
+    }
+  },
   methods: {
     logout() {
       auth.signOut().then(() => {
@@ -25,7 +30,16 @@ export default {
         });
       });
     }
-  }  
+  },
+  watch:{
+    $route(to, from) {
+      if(location.pathname == '/diary') {
+        this.showDateSwitcher = true;
+      } else {
+        this.showDateSwitcher = false;
+      }
+    }
+  } 
 }
 </script>
 
@@ -41,13 +55,13 @@ nav {
   justify-content: space-between;
 }
 .date {
-  padding: 1em 1em 0 1em;
+  padding: 1em 1em 0;
 }
 .date .btn {
   margin-top: 0;
 }
 .pages {
-  padding: 2em 1em 1em;
+  padding: 1em 1em 1em;
 }
 .pages span {
   color: var(--theme);
