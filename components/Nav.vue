@@ -1,8 +1,8 @@
 <template>
   <nav>
     <div class="date" v-if='showDateSwitcher'>
-      <span class="btn grey" @click='previousDate'>Previous date</span>
-      <span class="btn grey" @click='nextDate'>Next date</span>
+      <span class="btn" @click='previousDate'>Previous date</span>
+      <span :class="{btn: true, grey: dateIsToday}" @click='nextDate'>Next date</span>
     </div>
     <div class="pages">
       <n-link to="/diary">Diary</n-link>
@@ -29,8 +29,10 @@ export default {
       this.$store.dispatch('setDate', newDate);
     },
     nextDate() {
-      const newDate = moment(this.date).add(1, 'd').format('YYYY-MM-DD');
-      this.$store.dispatch('setDate', newDate);
+      if(!this.dateIsToday) {
+        const newDate = moment(this.date).add(1, 'd').format('YYYY-MM-DD');
+        this.$store.dispatch('setDate', newDate);
+      }
     },
     logout() {
       auth.signOut().then(() => {
@@ -43,6 +45,9 @@ export default {
   computed: {
     date() {
       return this.$store.getters.date
+    },
+    dateIsToday() {
+      return moment().format('YYYY-MM-DD') == this.date;
     }
   },
   watch:{
@@ -75,6 +80,9 @@ nav {
   margin-top: 0;
   cursor: pointer;
   font-size: 0.8em;
+}
+.date .btn.grey {
+  cursor: default;
 }
 .pages {
   padding: 1em 1em 1em;
