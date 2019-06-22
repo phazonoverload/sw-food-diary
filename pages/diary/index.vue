@@ -9,41 +9,34 @@
 </template>
 
 <script>
+import { db } from "~/plugins/firebase.js";
 import AddItem from "~/components/AddItem";
 import ListFood from "~/components/ListFood";
+
 export default {
   middleware: 'must-be-logged-in',
   data() {
     return {
-      date: "2019-06-21",
-      food: [
-        {
-          name: "Muller Light",
-          points: 1,
-          type: "points"
-        },
-        {
-          name: "Broccoli",
-          points: 0,
-          type: "speed"
-        },
-        {
-          name: "5% Mince",
-          points: 0,
-          type: "free"
-        },
-        {
-          name: "40g Lighter Cheddar",
-          points: 0,
-          type: "a"
-        },
-        {
-          name: "Kitkat",
-          points: 9,
-          type: "points"
-        }
-      ]
+      date: "2019-06-22",
+      days: []
     };
+  },
+  firestore() {
+    return {
+      days: db.collection('days').where('date', '==', this.date).where('user', '==', this.currentUser.user.email)
+    }
+  },
+  computed: {
+    currentUser() {
+      return this.$store.getters.currentUser
+    },
+    food() {
+      if(this.days.length > 0) {
+        return this.days[0].food
+      } else {
+        return [];
+      }
+    }
   },
   components: {
     AddItem,
