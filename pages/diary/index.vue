@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Food diary.</h1>
-    <h2>Fri 21st June 2019</h2>
+    <h2>{{ this.date | moment('ddd Do MMM') }}</h2>
     <AddItem :date="date"/>
     <hr>
     <ListFood :food="food"/>
