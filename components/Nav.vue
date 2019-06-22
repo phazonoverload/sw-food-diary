@@ -8,10 +8,25 @@
       <n-link to="/diary">Diary</n-link>
       <n-link to="/send">Send</n-link>
       <n-link to="/settings">Settings</n-link>
-      <span>Logout</span>
+      <span @click='logout'>Logout</span>
     </div>
   </nav>
 </template>
+
+<script>
+import { auth } from "~/plugins/firebase.js";
+
+export default {
+  methods: {
+    logout() {
+      auth.signOut().then(() => {
+        this.$store.dispatch('clearCurrentUser');
+        this.$router.push("/");
+      });
+    }
+  }  
+}
+</script>
 
 <style scoped>
 nav {
