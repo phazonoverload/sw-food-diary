@@ -13,7 +13,9 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "caniuse-lite": "^1.0.30000974",
-    "nuxt": "^2.0.0"
+    "firebase": "^6.2.1",
+    "nuxt": "^2.0.0",
+    "vue-firestore": "^0.3.21"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

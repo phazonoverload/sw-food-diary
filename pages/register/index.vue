@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { auth } from "~/plugins/firebase.js";
+
 export default {
   data() {
     return {
@@ -20,13 +22,11 @@ export default {
   },
   methods: {
     register() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.auth.email, this.auth.password)
-        .then(user => {
-          this.user = user;
-          this.authReset();
-        });
+      auth.createUserWithEmailAndPassword(this.email, this.password).then(user => {
+        console.log(user);
+        this.$store.dispatch("setCurrentUser", user);
+        this.$router.push("/diary");
+      });
     }
   }
 };
