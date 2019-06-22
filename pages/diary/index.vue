@@ -10,13 +10,14 @@
 
 <script>
 import { db } from "~/plugins/firebase.js";
+import moment from 'moment'
 import AddItem from "~/components/AddItem";
 import ListFood from "~/components/ListFood";
 
 export default {
   middleware: 'must-be-logged-in',
   beforeCreate() {
-    this.$store.dispatch('setDate', '2019-06-22');
+    this.$store.dispatch('setDate', moment().format('YYYY-MM-DD'));
   },
   data() {
     return {
@@ -25,7 +26,7 @@ export default {
   },
   firestore() {
     return {
-      days: db.collection('days').where('date', '==', this.date).where('user', '==', this.currentUser.user.email)
+      days: db.collection('days').where('user', '==', this.currentUser.user.email)
     }
   },
   computed: {
@@ -33,11 +34,9 @@ export default {
       return this.$store.getters.currentUser
     },
     food() {
-      if(this.days.length > 0) {
-        return this.days[0].food
-      } else {
-        return [];
-      }
+      const matchingTodaysDate = this.days.filter(day => day.date == this.date)
+      if(matchingTodaysDate.length > 0) return matchingTodaysDate[0].food
+      else return []
     },
     date() {
       return this.$store.getters.date

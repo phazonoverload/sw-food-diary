@@ -1,8 +1,8 @@
 <template>
   <nav>
     <div class="date" v-if='showDateSwitcher'>
-      <span class="btn grey">Previous day</span>
-      <span class="btn grey">Next day</span>
+      <span class="btn grey" @click='previousDate'>Previous date</span>
+      <span class="btn grey" @click='nextDate'>Next date</span>
     </div>
     <div class="pages">
       <n-link to="/diary">Diary</n-link>
@@ -15,6 +15,7 @@
 
 <script>
 import { auth } from "~/plugins/firebase.js";
+import moment from 'moment'
 
 export default {
   data() {
@@ -23,12 +24,25 @@ export default {
     }
   },
   methods: {
+    previousDate() {
+      const newDate = moment(this.date).subtract(1, 'd').format('YYYY-MM-DD');
+      this.$store.dispatch('setDate', newDate);
+    },
+    nextDate() {
+      const newDate = moment(this.date).add(1, 'd').format('YYYY-MM-DD');
+      this.$store.dispatch('setDate', newDate);
+    },
     logout() {
       auth.signOut().then(() => {
         this.$store.dispatch('clearCurrentUser').then(() => {
           this.$router.push("/");
         });
       });
+    }
+  },
+  computed: {
+    date() {
+      return this.$store.getters.date
     }
   },
   watch:{
