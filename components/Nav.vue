@@ -18,6 +18,9 @@ import { auth } from "~/plugins/firebase.js";
 import moment from 'moment'
 
 export default {
+  created() {
+    this.showOrHideDateButtons()
+  },
   data() {
     return {
       showDateSwitcher: true
@@ -40,6 +43,13 @@ export default {
           this.$router.push("/");
         });
       });
+    },
+    showOrHideDateButtons() {
+      if(location.pathname == '/diary') {
+        this.showDateSwitcher = true;
+      } else {
+        this.showDateSwitcher = false;
+      }
     }
   },
   computed: {
@@ -52,11 +62,7 @@ export default {
   },
   watch:{
     $route(to, from) {
-      if(location.pathname == '/diary') {
-        this.showDateSwitcher = true;
-      } else {
-        this.showDateSwitcher = false;
-      }
+      this.showOrHideDateButtons()
     }
   } 
 }
