@@ -22,11 +22,10 @@ export default {
     };
   },
   methods: {
-    register() {
-      auth.createUserWithEmailAndPassword(this.email, this.password).then(user => {
-        this.$store.dispatch("setCurrentUser", user);
-        this.$router.push("/diary");
-      });
+    register: async function() {
+      const user = await auth.createUserWithEmailAndPassword(this.email, this.password);
+      await this.$store.dispatch("setCurrentUser", user);
+      this.$router.push("/diary");
     }
   }
 };

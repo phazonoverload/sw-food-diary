@@ -22,11 +22,10 @@ export default {
     };
   },
   methods: {
-    login() {
-      auth.signInWithEmailAndPassword(this.email, this.password).then(user => {
-        this.$store.dispatch("setCurrentUser", user);
-        this.$router.push("/diary");
-      });
+    login: async function() {
+      const user = await auth.signInWithEmailAndPassword(this.email, this.password);
+      await this.$store.dispatch("setCurrentUser", user);
+      this.$router.push("/diary");
     }
   }
 };
