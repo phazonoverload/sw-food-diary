@@ -50,8 +50,12 @@ export default {
 </script>
 
 <style scoped>
+h1#title {
+  margin-bottom: 0;
+}
 h1 + h2 {
   margin: 0.5rem 0 1rem;
+  font-size: 1.25em;
 }
 form {
   margin-bottom: 2em;

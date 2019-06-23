@@ -29,7 +29,10 @@ h1#title {
   text-decoration-style: double;
 }
 
-input,
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='password'],
 select {
   -webkit-appearance: none;
   padding: 0.5em;
@@ -40,7 +43,10 @@ select {
   font-size: 1em;
 }
 
-input:focus,
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='number']:focus,
+input[type='password']:focus,
 input[type='submit'],
 .btn {
   border-color: var(--theme);
@@ -57,6 +63,7 @@ input[type='submit'],
   padding: 0.6em 1em 0.5em 1em;
   border-radius: 4px;
   font-size: 1em;
+  cursor: pointer;
 }
 
 .btn.grey {

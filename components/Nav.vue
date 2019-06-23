@@ -6,8 +6,7 @@
     </div>
     <div class="pages">
       <n-link to="/diary">Diary</n-link>
-      <n-link to="/send">Send</n-link>
-      <n-link to="/settings">Settings</n-link>
+      <n-link to="/send">Send via email</n-link>
       <span @click='logout'>Logout</span>
     </div>
   </nav>
