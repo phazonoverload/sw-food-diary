@@ -23,9 +23,13 @@ export default {
   },
   methods: {
     register: async function() {
-      const user = await auth.createUserWithEmailAndPassword(this.email, this.password);
-      await this.$store.dispatch("setCurrentUser", user);
-      this.$router.push("/diary");
+      try {
+        const user = await auth.createUserWithEmailAndPassword(this.email, this.password);
+        await this.$store.dispatch("setCurrentUser", user);
+        this.$router.push("/diary");
+      } catch(error) {
+        alert(error)
+      }
     }
   }
 };

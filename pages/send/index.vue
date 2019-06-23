@@ -5,7 +5,8 @@
       <input type="checkbox" name='selected-dates' v-model='selectedDates' :value='day.date' :id='day.date'>
       <label :for='day.date'>{{ day.friendly }} ({{ day.total }} points)</label>
     </div>
-    <a class="btn" :href='compose'>Compose email to consultant</a>
+    <a class="btn" :href='compose' v-if='sortedDays.length > 0'>Compose email to consultant</a>
+    <p v-else>Start adding items in your diary, and then you can come here to email your diary to your consultant.</p>
   </div>
 </template>
 
@@ -53,7 +54,6 @@ export default {
           b: fullRecord.food.filter(item => item.type == "b"),
           points: fullRecord.food.filter(item => item.type == "points"),
           free: fullRecord.food.filter(item => item.type == "free" || item.type == "speed")
-          // total: fullRecord.food.points.reduce((acc, val) => { return acc + Number(val.points) }, 0)
         }
       });
     },
@@ -98,5 +98,8 @@ input[type='checkbox'] {
 .btn {
   display: inline-block;
   margin-top: 1em;
+}
+p {
+  line-height: 1.5;
 }
 </style>
