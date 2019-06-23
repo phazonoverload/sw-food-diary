@@ -5,7 +5,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'application-name', content: 'Food Tracker' }
+      { name: 'application-name', content: 'Food Tracker' },
+      { name: 'description', content: 'Track your food on the go and email your food diary to your consultant.' },
+      { property: 'og:title', content: 'Food Tracker' },
+      { property: 'og:image', content: 'https://swfooddiary.com/og.image' },
+      { property: 'og:description', content: 'Track your food on the go and email your food diary to your consultant.' },
     ],
     link: [
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.3.1/css/all.css', crossorigin: 'anonymous', integrity: 'sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU' },
