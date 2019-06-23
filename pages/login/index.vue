@@ -7,6 +7,7 @@
       <input type="submit" value="Login">
     </form>
     <n-link to="/register">Create a new account</n-link>
+    <n-link to='/forgot'>Forgot Password</n-link>
   </div>
 </template>
 
@@ -38,5 +39,8 @@ export default {
 <style scoped>
 form {
   margin-bottom: 2em;
+}
+a {
+  margin-right: 1em;
 }
 </style>
