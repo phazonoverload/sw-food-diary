@@ -8,7 +8,7 @@ export default {
       { name: 'application-name', content: 'Food Tracker' },
       { name: 'description', content: 'Track your food on the go and email your food diary to your consultant.' },
       { property: 'og:title', content: 'Food Tracker' },
-      { property: 'og:image', content: 'https://swfooddiary.com/og.image' },
+      { property: 'og:image', content: 'https://swfooddiary.com/og.png' },
       { property: 'og:description', content: 'Track your food on the go and email your food diary to your consultant.' },
     ],
     link: [
