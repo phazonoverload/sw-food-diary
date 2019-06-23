@@ -2,16 +2,14 @@
   <div id="page">
     <div class="content">
       <h1 id="title">Food Tracker.</h1>
-      <!-- <p>Record food as you eat it.</p>
-      <p>Keep on top of your points.</p>
-      <p>Share easily with your consultant.</p>-->
+      <p>Track your food on the go and email your food diary to your consultant.</p>
       <n-link to="/login" class="btn">Login now</n-link>
     </div>
     <div class="bottom">
       <small>
         This app is built by
-        <a href="https://twitter.com/_phzn">Kevin Lewis</a> and is open source with it's code on
-        <a href="#">GitHub</a>. It is not at all related to, or endorsed by, Slimming World.
+        <a href="https://twitter.com/_phzn" target="_blank">Kevin Lewis</a> and is open source with it's code on
+        <a href="https://github.com/phazonoverload/sw-food-diary" target="_blank">GitHub</a>. It is not at all related to, or endorsed by, Slimming World. This costs money and time to run, so if you are able to I'd appreciate a small <a href="https://monzo.me/kev" target="_blank">donation</a>.
       </small>
     </div>
   </div>
@@ -30,8 +28,16 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
+h1#title {
+  margin-bottom: 1em;
+}
 p {
-  margin: 1em 0;
+  margin-bottom: 1em;
+  line-height: 1.5;
+}
+.btn {
+  margin-top: 1em;
+  display: inline-block;
 }
 .bottom {
   margin-top: 2em;
