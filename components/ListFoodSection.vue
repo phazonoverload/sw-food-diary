@@ -40,6 +40,7 @@ export default {
 }
 .name {
   margin-right: auto;
+  padding-right: 1em;
 }
 i {
   margin-left: 0.5em;
