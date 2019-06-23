@@ -8,6 +8,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter UI var alt', sans-serif;
+  -webkit-appearance: none;
 }
 
 body {
@@ -19,6 +20,7 @@ input {
   width: 100%;
   margin-bottom: 1em;
   font-size: 1em;
+  -webkit-appearance: none;
 }
 
 h1#title {
@@ -64,6 +66,7 @@ input[type='submit'],
   border-radius: 4px;
   font-size: 1em;
   cursor: pointer;
+  -webkit-appearance: none;
 }
 
 .btn.grey {
